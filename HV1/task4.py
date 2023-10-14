@@ -8,3 +8,15 @@
 # a, b, c = 3, 2, 4 -> yes
 # a, b, c = 3, 2, 1 -> no
 
+a = 4
+b = 5
+c = 22
+S = a * b
+
+if c <= a * b:
+    if a * b % c != 0:
+        print("yes")
+    else:
+        print("no")
+else:
+    print("no")
