@@ -13,28 +13,26 @@
 
 """
 
-nums = [1, 5, 3, 4, 1, 7, 8 , 15 , 1 ]
+nums = [1, 5, 3, 4, 1, 7, 8 , 15 , 1]
 
 search = min(nums)
 mx = max(nums)
-count = 0
-flag = 0
+max_sequence = []
+sequence = []
 
 while search <= mx:
     for i in nums:
         if i == search:
-            flag = 1
-            count += 1
+            sequence.append(i)
             search += 1
             break
-        print(f"i = {i}, count = {count} search = {search} ")
-        # TODO: добавляем элемент в список
     else:
-        print("--------------")
-        flag = 0    
-        count = 0
+        if len(sequence) > len(max_sequence):
+            max_sequence = sequence
+            sequence = []
         search += 1
 
+print(f"Максимальная последовательность от {min(max_sequence)} до {max(max_sequence)}")
 
 
 
