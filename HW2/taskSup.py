@@ -12,41 +12,28 @@
 [1, 5, 3, 4, 1, 7, 8 , 15 , 1 ] => [3, 5] так как здесь есть числа от 3 до 5 и эта последовательность длиннее чем от 7 до 8
 
 """
-""" 
+
 nums = [1, 5, 3, 4, 1, 7, 8 , 15 , 1 ]
 
-curr = 1
+search = min(nums)
+mx = max(nums)
 count = 0
 flag = 0
 
-for _ in range(len(nums)):
+while search <= mx:
     for i in nums:
-        if i == curr:
+        if i == search:
             flag = 1
             count += 1
-            curr += 1
+            search += 1
             break
-        print(f"i = {i}, count = {count} curr = {curr} ")
-    if flag = 0
-"""
-numbers = [1, 5, 3, 4, 1, 7, 8, 15, 1]
-
-max_seq = []
-current_seq = [numbers[0]]
-
-for i in range(1, len(numbers)):
-    if numbers[i] > numbers[i - 1]:
-        current_seq.append(numbers[i])
+        print(f"i = {i}, count = {count} search = {search} ")
+        # TODO: добавляем элемент в список
     else:
-        if len(current_seq) > len(max_seq):
-            max_seq = current_seq
-        current_seq = [numbers[i]]
-
-if len(current_seq) > len(max_seq):
-    max_seq = current_seq
-
-print(max_seq)
-
+        print("--------------")
+        flag = 0    
+        count = 0
+        search += 1
 
 
 
