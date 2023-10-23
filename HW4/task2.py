@@ -36,4 +36,4 @@ def max_berry_harvest(arr):
 # Пример использования
 arr = [3, 7, 7, 5, 5, 6, 7, 7, 7]
 result = max_berry_harvest(arr)
-print(result)  # Вывод: 19
+print(result)  
