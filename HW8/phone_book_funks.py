@@ -8,3 +8,11 @@ def load_contacts():
         return contacts
     except FileNotFoundError:
         return []
+    
+def save_contacts(contacts):
+    with open("phone_book.json", "w") as file:
+        json.dump(contacts, file, indent=2)
+
+def add_contact(contacts, data):
+    contacts.append({"Фамилия": data[0], "Имя": data[1], "Отчество": data[2], "Номер телефона": data[3]})
+    save_contacts(contacts)
