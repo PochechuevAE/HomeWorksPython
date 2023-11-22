@@ -26,33 +26,36 @@ while True:
     elif choice == 'Изменить контакт':
         if not contacts:
             msgbox("Справочник пуст. Нельзя изменить контакт.", 'Телефонный справочник')
-        else:
-            try:
-                if len(contacts) == 1:
-                    edit_contact(contacts, 0)
-                else:
+        else:           
+            if len(contacts) == 1:
+                edit_contact(contacts, 0)
+            else:
+                try:
                     contact_names = [f"{contact['Фамилия']} {contact['Имя']} {contact['Отчество']}" for contact in contacts]
                     choice = choicebox("Выберите контакт для изменения", "Телефонный справочник", contact_names)
                     if choice:
                         index = contact_names.index(choice)
                         edit_contact(contacts, index)
-            except ValueError:
-                msgbox("У Вас единственный контакт. Изменение не выполнено.", 'Телефонный справочник')
+                except ValueError:
+                    msgbox("Выбран неверный контакт. Изменение не выполнено.", 'Телефонный справочник')
                 
     elif choice == 'Удалить контакт':
         if not contacts:
             msgbox("Справочник пуст. Нельзя удалить контакт.", 'Телефонный справочник')
-        else:
-            try:
-                contact_names = [f"{contact['Фамилия']} {contact['Имя']} {contact['Отчество']}" for contact in contacts]
-                choice = choicebox("Выберите контакт для удаления", "Телефонный справочник", contact_names)
+        else:            
+            if len(contacts) == 1:
+                delete_contact(contacts, 0)
+            else:
+                try:   
+                    contact_names = [f"{contact['Фамилия']} {contact['Имя']} {contact['Отчество']}" for contact in contacts]
+                    choice = choicebox("Выберите контакт для удаления", "Телефонный справочник", contact_names)
 
             
-                if choice:
-                    index = contact_names.index(choice)
-                    delete_contact(contacts, index)
-            except ValueError:
-                msgbox("У Вас единственный контакт. Удаление не выполнено.", 'Телефонный справочник')
+                    if choice:
+                        index = contact_names.index(choice)
+                        delete_contact(contacts, index)
+                except ValueError:
+                    msgbox("Выбран неверный контакт. Удаление не выполнено.", 'Телефонный справочник')
             
               
     elif choice == 'Выход':
