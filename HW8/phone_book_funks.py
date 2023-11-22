@@ -52,3 +52,7 @@ def edit_contact(contacts, index):
                            "Номер телефона": field_values[3]}
         save_contacts(contacts)
         msgbox("Контакт успешно изменен!")
+        
+def search_by_surname(contacts, surname):
+    found_contacts = [contact for contact in contacts if contact['Фамилия'] == surname]
+    return found_contacts
