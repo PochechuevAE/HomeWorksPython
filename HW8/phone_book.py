@@ -19,3 +19,17 @@ while True:
         if field_values:
             add_contact(contacts, field_values)
             msgbox("Контакт успешно добавлен!")
+    
+    elif choice == 'Просмотреть все контакты':
+        view_all_contacts(contacts)
+
+    elif choice == 'Изменить контакт':
+        if not contacts:
+            msgbox("Справочник пуст. Нельзя изменить контакт.", 'Телефонный справочник')
+        else:
+            contact_names = [f"{contact['Фамилия']} {contact['Имя']} {contact['Отчество']}" for contact in contacts]
+            choice = choicebox("Выберите контакт для изменения", "Телефонный справочник", contact_names)
+
+            if choice:
+                index = contact_names.index(choice)
+                edit_contact(contacts, index)
