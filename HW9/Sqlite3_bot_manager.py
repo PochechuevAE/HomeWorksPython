@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import sqlite3
 
-token = ''
+token = '' #Необходимо вписать токен бота
 bot = telebot.TeleBot(token)
 name = None
 
